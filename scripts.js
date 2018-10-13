@@ -19,4 +19,13 @@ function initColumns() {
 				$(cell).addClass('col' + num);
 			});
 		});
+
+    //Add prev and next arrows to head of all columns except fixed column
+    $('th').not('.fixed-column').append('<span class="prev-col"></span><span class="next-col"></span>');
+
+    //Hide prev arrow if first column
+    $('.col0').children('.prev-col').hide();
+
+    //Hide next arrow if last column
+    $('tr th:last-child').children('.next-col').hide();
 }

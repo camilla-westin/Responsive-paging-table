@@ -5,7 +5,7 @@ body {
 }
 
 #page-container {
-  width: 960px;
+  width: 100%;
   margin: 0 auto;
 }
 table {
@@ -19,6 +19,7 @@ th {
   font-family: Arial;
   padding: 20px;
   text-align: left;
+  position: relative;
 }
 
 tr {
@@ -49,4 +50,43 @@ table.responsive-table .is-hidden {
 .responsive-table th:first-child {
 	min-width: initial;
 	width: 50%;
+}
+
+.responsive-table .prev-col {
+  position: absolute;
+  top: 22px;
+  left: 15px;
+}
+
+.responsive-table .prev-col:before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid white;
+  border-top: 2px solid white;
+  transform: rotate(225deg);
+}
+
+.responsive-table .next-col {
+  position: absolute;
+  top: 22px;
+  right: 15px;
+}
+.responsive-table .next-col:before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid white;
+  border-top: 2px solid white;
+  transform: rotate(45deg);
+}
+
+
+@media and (min-width: 800px) {
+  #page-container {
+    width: 960px;
+    margin: 0 auto;
+  }
 }
