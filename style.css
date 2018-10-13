@@ -40,3 +40,13 @@ td {
 td:last-child {
   border: none;
 }
+
+table.responsive-table .is-hidden {
+  display: none;
+}
+
+.responsive-table td:first-child,
+.responsive-table th:first-child {
+	min-width: initial;
+	width: 50%;
+}
