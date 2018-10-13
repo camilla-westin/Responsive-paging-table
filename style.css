@@ -1,4 +1,42 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: Arial;
+}
+
+#page-container {
+  width: 960px;
+  margin: 0 auto;
+}
+table {
+  border: 1px solid #99dbba;
+  width: 100%;
+}
+
+th {
+  background: #47b784;
+  color: white;
+  font-family: Arial;
+  padding: 20px;
+  text-align: left;
+}
+
+tr {
+  border-bottom: 1px solid #99dbba;
+}
+
+tr:nth-child(odd) {
+  background: #e3efe9;
+}
+
+td {
+  padding: 20px;
+  color: #222;
+  font-size: 13px;
+  text-align: left;
+  border-right: 1px solid #99dbba;
+}
+
+td:last-child {
+  border: none;
 }
