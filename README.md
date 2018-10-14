@@ -1,4 +1,4 @@
-# Responsive
+# Responsive table
 
 ## Table with next and prev arrows and indicator in mobile
 
