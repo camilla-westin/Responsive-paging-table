@@ -50,6 +50,11 @@ table.responsive-table .is-hidden {
 .responsive-table th:first-child {
 	min-width: initial;
 	width: 50%;
+  text-align: left;
+}
+
+.responsive-table th {
+  text-align: center;
 }
 
 .responsive-table .prev-col {
