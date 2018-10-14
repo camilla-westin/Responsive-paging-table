@@ -1,10 +1,11 @@
-const hiddenClass = "is-hidden";
+const hiddenClass = 'is-hidden';
 
 if ($(window).width() < 800) {
    $('table').addClass('responsive-table');
    initColumns();
    nextColumn();
    prevColumn();
+   indicator();
 }
 
 function initColumns() {
@@ -45,6 +46,12 @@ function nextColumn() {
   		//Show next column and all with the same class
   		$currentColumn.next().removeClass(hiddenClass);
   		$table.find('.' + $currentColClass).next().removeClass(hiddenClass);
+
+      let $activeElement = $table.find(".is-active");
+
+  		$activeElement.next().addClass("is-active");
+  		$activeElement.removeClass("is-active");
+  		$table.find(".is-active").prevAll().addClass('white-bg');
     });
 }
 
@@ -61,5 +68,40 @@ function prevColumn() {
 		//Show next column and all with the same class
 		$currentColumn.prev().removeClass(hiddenClass);
 		$table.find('.' + $currentColClass).prev().removeClass(hiddenClass);
+
+    var $activeElement = $table.find(".is-active");
+
+		$activeElement.prev().addClass("is-active");
+		$activeElement.removeClass("is-active");
+		$table.find(".is-active").prevAll().addClass('white-bg');
+		$table.find(".is-active").nextAll().removeClass('white-bg');
   });
+}
+
+function indicator() {
+  //Add container for indicator
+		$('th').not('.fixed-column').append('<div class="indicator"></div>');
+		//Count no. of columns
+		var tableCols = 0;
+		$('.responsive-table tbody tr').each(function () {
+			var currCount = 0;
+			$(this).children('td').each(function () {
+				currCount++;
+				var colSpan = $(this).attr('colspan');
+				tableCols = currCount;
+
+			});
+		});
+
+		//Remove 1 column since first should not count
+		var numOfCols = tableCols - 1;
+
+		//Add dots according to no. of columns
+		for (var i = 0; i < numOfCols; i++) {
+
+			$('.indicator').append('<span class="dot"></span>');
+		}
+
+		//Show first dot as active
+		$('.dot:first-child').addClass('is-active');
 }
