@@ -2,6 +2,7 @@ body {
   padding: 20px;
   margin: 0;
   font-family: Arial;
+  background: #f8f8f8;
 }
 
 #page-container {
@@ -24,6 +25,7 @@ th {
 
 tr {
   border-bottom: 1px solid #99dbba;
+  background: white;
 }
 
 tr:nth-child(odd) {
@@ -55,6 +57,14 @@ table.responsive-table .is-hidden {
 
 .responsive-table th {
   text-align: center;
+}
+
+.responsive-table td {
+  border-right: none;
+}
+
+.responsive-table td:first-child {
+  border-right: 1px solid #99dbba;
 }
 
 .responsive-table .prev-col {

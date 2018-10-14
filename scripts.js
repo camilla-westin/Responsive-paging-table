@@ -51,7 +51,7 @@ function nextColumn() {
 
   		$activeElement.next().addClass("is-active");
   		$activeElement.removeClass("is-active");
-  		$table.find(".is-active").prevAll().addClass('white-bg');
+  		$table.find(".is-active").prevAll();
     });
 }
 
@@ -73,8 +73,8 @@ function prevColumn() {
 
 		$activeElement.prev().addClass("is-active");
 		$activeElement.removeClass("is-active");
-		$table.find(".is-active").prevAll().addClass('white-bg');
-		$table.find(".is-active").nextAll().removeClass('white-bg');
+		$table.find(".is-active").prevAll();
+		$table.find(".is-active").nextAll();
   });
 }
 
