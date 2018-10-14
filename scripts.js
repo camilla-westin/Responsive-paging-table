@@ -4,6 +4,7 @@ if ($(window).width() < 800) {
    $('table').addClass('responsive-table');
    initColumns();
    nextColumn();
+   prevColumn();
 }
 
 function initColumns() {
@@ -45,4 +46,20 @@ function nextColumn() {
   		$currentColumn.next().removeClass(hiddenClass);
   		$table.find('.' + $currentColClass).next().removeClass(hiddenClass);
     });
+}
+
+function prevColumn() {
+  $('.prev-col').on('click', function(){
+    let $currentColumn = $(this).parent();
+		let $table = $currentColumn.parents('table').eq(0);
+		let $currentColClass = $currentColumn.attr('class');
+
+		//Hide this column and all with the same class
+		$currentColumn.addClass(this.hiddenClass);
+		$table.find('.' + $currentColClass).addClass(hiddenClass);
+
+		//Show next column and all with the same class
+		$currentColumn.prev().removeClass(hiddenClass);
+		$table.find('.' + $currentColClass).prev().removeClass(hiddenClass);
+  });
 }
