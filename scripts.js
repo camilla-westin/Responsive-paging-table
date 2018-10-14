@@ -1,8 +1,9 @@
-var hiddenClass = "is-hidden";
+const hiddenClass = "is-hidden";
 
 if ($(window).width() < 800) {
    $('table').addClass('responsive-table');
    initColumns();
+   nextColumn();
 }
 
 function initColumns() {
@@ -28,4 +29,20 @@ function initColumns() {
 
     //Hide next arrow if last column
     $('tr th:last-child').children('.next-col').hide();
+}
+
+function nextColumn() {
+    $('.next-col').on('click', function(){
+      let $currentColumn = $(this).parent();
+  		let $table = $currentColumn.parents('table').eq(0);
+  		let $currentColClass = $currentColumn.attr('class');
+
+  		//Hide this column and all with the same class
+  		$currentColumn.addClass(hiddenClass);
+  		$table.find('.' + $currentColClass).addClass(hiddenClass);
+
+  		//Show next column and all with the same class
+  		$currentColumn.next().removeClass(hiddenClass);
+  		$table.find('.' + $currentColClass).next().removeClass(hiddenClass);
+    });
 }
